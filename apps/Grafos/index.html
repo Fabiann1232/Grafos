@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        <title>Grafos | Home</title>
+        <link rel="stylesheet" type="text/css" href="../../build/package/rappid.css">
+        <link rel="stylesheet" type="text/css" href="css/Styles.css" />
+
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <p class="logo">Grafos</p>
+            </div>
+        </header>
+        
+        <script>
+            SVGElement.prototype.getTransformToElement = SVGElement.prototype.getTransformToElement || function (toElement) {
+                return toElement.getScreenCTM().inverse().multiply(this.getScreenCTM());
+            };
+        </script>
+
+        <div id="popup">
+            <p>Haga doble clic en un área de papel en blanco para crear nuevos nodos.</p>
+            <p>Desplace los vínculos para mostrar la herramienta Quitar o arrastre para cambiar los vértices.</p>
+            <p>Desplace los bordes del elemento para mostrar la herramienta de conexión.</p>
+            <p>Arrastre los elementos para reposicionarlos.</p>
+        </div>
+
+        <div class="example shorter-path-finder">
+            <div class="options">
+                <input class="checkbox" id="directed-graph-toggle" type="checkbox"/>
+                <label for="directed-graph-toggle" class="checkbox-label">
+                    <span>Directed graph</span>
+                </label>
+                <input class="checkbox" id="edit-mode-toggle" type="checkbox"/>
+                <label for="edit-mode-toggle" class="checkbox-label">
+                    <span>Edit mode</span>
+                </label>
+            </div>
+            <span id="path"></span>
+            <div id="paper" class="paper"></div>
+        </div>
+
+        <div class="Datos">
+            <div class="titulo">
+                <h1>Holaa</h1>
+            </div>
+            <div class="texto">
+                <h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere doloremque nulla illo similique omnis alias expedita cupiditate inventore? Deserunt, temporibus.</h2>
+            </div>
+            <div class="Grafico">
+                
+            </div>
+        </div>
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <div id="chart_div" style="width: 100%; height: 500px;"></div>
+    
+
+
+
+        <footer>
+            <ul class="social_icon">
+                <div class="icon">
+                    <svg heigth="80" width="80">
+                        <circle cx="40" cy="40" r="35" stroke="white" stroke-width="4" fill="none" ></circle>
+                    </svg>
+                    <a href="https://github.com/Fabiann1232" target="_blank"><i class='bx bxl-github'></i></a>
+                </div>
+            </ul>
+            <div class="copyright-container">
+                <h4>Copyright 2023, Feimon | Fabian Montenegro . All rights reserved.</h4>
+            </div> 
+            
+        </footer>
+
+        <!-- JointJS+ , dependencies: -->
+        <script src="../../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../../node_modules/lodash/lodash.js"></script>
+        <script src="../../node_modules/backbone/backbone.js"></script>
+        <script src="../../build/package/rappid.js"></script>
+        <script src="./src/controller.js"></script>
+        <script src="./src/controllers/view-controller.js"></script>
+        <script src="./src/controllers/edit-controller.js"></script>
+        <script src="src/Main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </body>
+</html>
