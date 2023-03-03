@@ -65,7 +65,9 @@ const getLinkStyle = () => {
 const getStartView = () => startView;
 const getEndView = () => endView;
 
+ 
 const graph = new joint.dia.Graph;
+ //Llamado de apartado en el index.html
 const paperElement = document.getElementById('paper');
 const paper = new joint.dia.Paper({
     el: paperElement,
@@ -103,10 +105,9 @@ const paper = new joint.dia.Paper({
 
 const viewController = new ViewController({ paper, showPath, hidePath, setStartView, setEndView, getStartView, getEndView });
 const editController = new EditController({ graph, paper, createLink, createNode, setStartView, setEndView, getStartView, size });
-// Helpers.
-// ------------
+ //Metodos
 
-// Create a node with `id`
+// Creacion de nodos atraves de id (A,B,C,D,E) JUNTO CON CIRCULOS 
 function createNode(id) {
     const node = (new joint.shapes.standard.Circle({
         id,
@@ -139,11 +140,15 @@ function createNode(id) {
 
     view.hideTools();
 
-    node.attr('label/text', id);
+    node.attr('label/text', random(0,10));
     return node;
 }
 
-// Create a link between a source element with id `s` and target element with id `t`.
+function random(min, max) {
+    return Math.floor((Math.random() * (max - min + 1)) + min);
+}
+
+ // CREACION DE UNIONES
 function createLink(s, t) {
     const link  = new joint.shapes.standard.Link({
         id: [s,t].sort().join(),
@@ -170,6 +175,7 @@ function createLink(s, t) {
 
     view.hideTools();
 }
+
 
 function setStartView(elementView) {
     hidePath();
@@ -200,6 +206,8 @@ function getElementPath() {
     return [];
 }
 
+ 
+ // CAMINO MAS CORTO ENTRE LOS NODOS
 function getLinkPath(elementPath) {
     const linkPath = [];
 
@@ -224,6 +232,8 @@ function getLinkPath(elementPath) {
     return linkPath;
 }
 
+
+ //MOSTRAR MEDIANTE EL LLAMADO DE TODOS LOS METODOS
 function showPath() {
     const elementPath = getElementPath();
     const isPathFound = elementPath.length > 0;
@@ -255,6 +265,7 @@ function showPath() {
         if (isLink) {
             element.set('z', 2);
         }
+
 
         pathMembersViews.push(view);
     }
